@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View.OnTouchListener
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class SignUp : AppCompatActivity() {
@@ -52,7 +53,7 @@ class SignUp : AppCompatActivity() {
             }
             false
         })
-
+        val btnBack: ImageView = findViewById (R.id.imageView3)
         val btnSignUp: Button = findViewById (R.id.buttonSignUp)
         val etEmail: EditText = findViewById (R.id.editTextTextEmailAddress)
         val etPswd: EditText = findViewById (R.id.editTextTextPassword)
@@ -66,6 +67,10 @@ class SignUp : AppCompatActivity() {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
+        }
+        btnBack.setOnClickListener {
+            val intent = Intent(this, Onboarding::class.java)
+            startActivity(intent)
         }
     }
 }

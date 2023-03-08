@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Dictionary"
+        android:id="@+id/dictionary"
+        android:icon="@drawable/tab_dictionary"/>
+    <item android:title="Training"
+        android:id="@+id/training"
+        android:icon="@drawable/tab_training"/>
+    <item android:title="Video"
+        android:id="@+id/video"
+        android:icon="@drawable/tab_video"/>
+</menu>

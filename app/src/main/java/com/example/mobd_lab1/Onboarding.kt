@@ -35,6 +35,9 @@ class Onboarding : AppCompatActivity() {
         val btnNextStep: Button = findViewById(R.id.btn_next_step)
 
         btnNextStep.setOnClickListener {
+            if (getItem() == mviewPager.childCount){
+                btnNextStep.setText("Let's Start")
+            }
             if (getItem() > mviewPager.childCount){
                 finish()
                 val intent = Intent(applicationContext, SignUp::class.java)
@@ -42,8 +45,8 @@ class Onboarding : AppCompatActivity() {
             } else {
                 mviewPager.setCurrentItem(getItem() + 1, true)
             }
-            }
         }
+    }
 
     private fun getItem(): Int {
         return mviewPager.currentItem

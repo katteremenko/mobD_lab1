@@ -10,17 +10,22 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mobd_lab1.databinding.ActivityOnboardingBinding
+import com.example.mobd_lab1.databinding.ActivitySignUpBinding
 
 class SignUp : AppCompatActivity() {
     private var email: EditText? = null
     private var password: EditText? = null
     private var isPasswordVisible = false
+    private lateinit var binding: ActivitySignUpBinding
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
-        email = findViewById(R.id.editTextTextEmailAddress)
-        password = findViewById(R.id.editTextTextPassword)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        email = binding.editTextTextEmailAddress
+        password = binding.editTextTextPassword
         var localPassword = password
         localPassword?.setOnTouchListener(OnTouchListener { _, event ->
             val right = 2
@@ -53,22 +58,19 @@ class SignUp : AppCompatActivity() {
             }
             false
         })
-        val btnBack: ImageView = findViewById (R.id.imageView3)
-        val btnSignUp: Button = findViewById (R.id.buttonSignUp)
-        val etEmail: EditText = findViewById (R.id.editTextTextEmailAddress)
-        val etPswd: EditText = findViewById (R.id.editTextTextPassword)
-        btnSignUp.setOnClickListener{
-            if(etEmail.text.toString().isEmpty()) {
-                etEmail.hint = "Enter your e-mail"
-            } else if(etPswd.text.toString().isEmpty()) {
-                etPswd.hint = "Enter your password"
+
+        binding.buttonSignUp.setOnClickListener{
+            if(email!!.text.toString().isEmpty()) {
+                email!!.hint = "Enter your e-mail"
+            } else if(password!!.text.toString().isEmpty()) {
+                password!!.hint = "Enter your password"
 
             } else {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
         }
-        btnBack.setOnClickListener {
+        binding.imageView3.setOnClickListener {
             val intent = Intent(this, Onboarding::class.java)
             startActivity(intent)
         }

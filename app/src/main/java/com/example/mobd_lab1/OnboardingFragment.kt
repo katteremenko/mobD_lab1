@@ -25,7 +25,6 @@ class OnboardingFragment : Fragment() {
             imageResource = requireArguments().getInt(ARG_PARAM3)
         }
     }
-    //private lateinit var binding: FragmentOnboardingBinding
     private var _binding: FragmentOnboardingBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(

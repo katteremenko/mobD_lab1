@@ -17,7 +17,6 @@ class Video : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater!!.inflate(R.layout.fragment_video, container, false)
-
         val mWebView = view.findViewById(R.id.webViewId) as WebView
         mWebView.loadUrl("https://learnenglish.britishcouncil.org/general-english/video-zone")
 
